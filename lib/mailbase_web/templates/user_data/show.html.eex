@@ -1,0 +1,38 @@
+<h1>Dane kontaktowe użytkownika</h1>
+
+<ul>
+
+  <li>
+    <strong>Company name:</strong>
+    <%= @user_data.company_name %>
+  </li>
+
+  <li>
+    <strong>Server name:</strong>
+    <%= @user_data.server_name %>
+  </li>
+
+  <li>
+    <strong>Domain name:</strong>
+    <%= @user_data.domain_name %>
+  </li>
+
+  <li>
+    <strong>Port:</strong>
+    <%= @user_data.port %>
+  </li>
+
+  <li>
+    <strong>Hosting mail:</strong>
+    <%= @user_data.hosting_mail %>
+  </li>
+
+  <li>
+    <strong>Hosting password:</strong>
+    <%= @user_data.hosting_password %>
+  </li>
+
+</ul>
+
+<span><%= link "Edytuj", to: Routes.user_data_path(@conn, :edit, @user_data) %></span>
+<span><%= link "_list", to: Routes.user_data_path(@conn, :index) %></span>

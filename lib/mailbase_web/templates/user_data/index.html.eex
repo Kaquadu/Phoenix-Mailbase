@@ -1,0 +1,38 @@
+<h1>Lista danych użytkowników</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company name</th>
+      <th>Server name</th>
+      <th>Domain name</th>
+      <th>Port</th>
+      <th>Hosting mail</th>
+      <th>Hosting password</th>
+      <th>User ID</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user_data <- @users_data do %>
+    <tr>
+      <td><%= user_data.company_name %></td>
+      <td><%= user_data.server_name %></td>
+      <td><%= user_data.domain_name %></td>
+      <td><%= user_data.port %></td>
+      <td><%= user_data.hosting_mail %></td>
+      <td><%= user_data.hosting_password %></td>
+      <td><%= user_data.user_id %></td>
+
+      <td>
+        <%= link "Show", to: Routes.user_data_path(@conn, :show, user_data) %>
+        <%= link "Edit", to: Routes.user_data_path(@conn, :edit, user_data) %>
+        <%= link "Delete", to: Routes.user_data_path(@conn, :delete, user_data), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<!--<span><%= link "New User data", to: Routes.user_data_path(@conn, :new) %></span>-->

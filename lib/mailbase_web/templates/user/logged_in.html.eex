@@ -1,0 +1,18 @@
+<h1 style="display: flex; align-items: center; justify-content: center;"> Witaj w bazie mailingowej</h1>
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <ul style = "list-style: none;">
+    <li>
+        <span><%= button "Edytuj dane logowania", to: Routes.user_path(@conn, :edit, @user), method: "get" %></span>
+    </li>
+    <li>
+        <span><%= button "Edytuj dane kontaktowe", to: Routes.user_data_path(@conn, :edit, @user), method: "get" %></span>
+    </li>
+    <li>
+        <span><%= button "Przeglądaj listy mailingowe", to: Routes.list_path(@conn, :index), method: "get" %></span>
+    </li>
+    <li>
+        <span><%= button "Dodaj listę mailingową", to: Routes.list_path(@conn, :new), method: "get" %></span>
+    </li>
+  </ul>
+</div>

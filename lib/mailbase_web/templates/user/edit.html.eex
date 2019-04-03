@@ -1,0 +1,12 @@
+<h1>Edycja danych logowania</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :update, @user)) %>
+
+<ul style = "list-style: none;">
+  <li>
+    <span><%= link "Wróć", to: Routes.user_path(@conn, :logged_in) %></span>
+  </li>
+  <li>
+    <span><%= link "Edytuj dane kontaktowe", to: Routes.user_data_path(@conn, :edit, @user) %></span>
+  </li>
+</ul>

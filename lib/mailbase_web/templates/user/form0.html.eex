@@ -1,0 +1,24 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Panie, takiego wała. Coś się zepsuło.</p>
+    </div>
+  <% end %>
+
+<div style = "display: flex; align-items: center; justify-content: center">
+  <div>
+      <%= label f, :email %>
+      <%= text_input f, :login_mail %>
+      <%= error_tag f, :login_mail %>
+
+      <%= label f, :hasło %>
+      <%= password_input f, :login_password %>
+      <%= error_tag f, :login_password %>
+
+      <div>
+        <%= submit "Rejestruj" %>
+      </div>
+
+  </div>
+</div>
+<% end %>

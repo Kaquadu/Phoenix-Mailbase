@@ -1,0 +1,19 @@
+<h1>Witaj</h1>
+
+<ul>
+
+  <li>
+    <strong>Login mail:</strong>
+    <%= @user.login_mail %>
+  </li>
+
+  <li>
+    <strong>Login password:</strong>
+    <%= @user.login_password %>
+  </li>
+
+</ul>
+
+<span><%= link "Edytuj dane logowania", to: Routes.user_path(@conn, :edit, @user) %></span>
+||
+<span><%= link "_list", to: Routes.user_path(@conn, :index) %></span>

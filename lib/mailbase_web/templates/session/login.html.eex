@@ -1,0 +1,11 @@
+<div style = "display: flex; align-items: center; justify-content: center">
+  <div>
+    <h2 style = "display: flex; align-items: center; justify-content: center">Logowanie</h2>
+    <%= form_for @conn, Routes.session_path(@conn, :new), [as: :session], fn f -> %>
+    <%= text_input f, :login_email, placeholder: "email" %>
+    <%= password_input f, :login_password, placeholder: "hasło" %>
+    <%= submit "Zaloguj" %>
+    <%= end %>
+    <span><%= link "Wróć", to: Routes.page_path(@conn, :index) %></span>
+  </div>
+</div>

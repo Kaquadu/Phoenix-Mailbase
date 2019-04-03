@@ -1,0 +1,27 @@
+<h1>Moje listy mailingowe</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nazwa</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for list <- @lits do %>
+    <tr>
+      <td><%= list.name %></td>
+
+      <td>
+        <%= link "Pokaż szczegóły", to: Routes.list_path(@conn, :show, list) %> |
+        <%= link "Edytuj", to: Routes.list_path(@conn, :edit, list) %> |
+        <%= link "Usuń", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "Wróć", to: Routes.user_path(@conn, :logged_in) %></span> |
+<span><%= link "Nowa lista", to: Routes.list_path(@conn, :new) %></span>
