@@ -1,0 +1,18 @@
+<h1>Show Address</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @address.name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @address.email %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.address_path(@conn, :edit, @address) %></span>
+<span><%= link "Back", to: Routes.address_path(@conn, :index) %></span>

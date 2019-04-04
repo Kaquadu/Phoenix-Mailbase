@@ -20,7 +20,7 @@
             <% end %>
           </ul>
         </nav>
-        <a href="<%= Routes.page_path(@conn, :index) %>" class="phx-logo">
+        <a href="<%= Routes.user_path(@conn, :logged_in) %>" class="phx-logo">
           <img src="<%= Routes.static_path(@conn, "/images/logo.jpg") %>" alt="Mailbase Logo"/>
         </a>
       </section>

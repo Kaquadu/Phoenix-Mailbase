@@ -44,7 +44,9 @@ defmodule Mailbase.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:comeonin, "~> 5.1.1"},
-      {:bcrypt_elixir, "~> 2.0.1"}
+      {:bcrypt_elixir, "~> 2.0.1"},
+      {:bamboo_smtp, "~> 1.6.0"},
+      {:bamboo_config_adapter, "~> 0.2.0"}
     ]
   end
 

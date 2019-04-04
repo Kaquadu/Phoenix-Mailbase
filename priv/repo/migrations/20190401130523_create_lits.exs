@@ -4,6 +4,7 @@ defmodule Mailbase.Repo.Migrations.CreateLits do
   def change do
     create table(:list) do
       add :name, :string
+      add :desc, :text
       add :user_id, references(:users)
 
       timestamps()

@@ -5,6 +5,8 @@
     <tr>
       <th>Nazwa</th>
 
+      <th>Opis</th>
+
       <th></th>
     </tr>
   </thead>
@@ -12,6 +14,8 @@
 <%= for list <- @lits do %>
     <tr>
       <td><%= list.name %></td>
+
+      <td><%= list.desc %></td>
 
       <td>
         <%= link "Pokaż szczegóły", to: Routes.list_path(@conn, :show, list) %> |

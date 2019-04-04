@@ -26,7 +26,7 @@
   <%= error_tag f, :hosting_mail %>
 
   <%= label f, :hosting_password %>
-  <%= text_input f, :hosting_password %>
+  <%= password_input f, :hosting_password %>
   <%= error_tag f, :hosting_password %>
 
   <div>
