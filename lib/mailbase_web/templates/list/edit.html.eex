@@ -2,4 +2,5 @@
 
 <%= render "form.html", Map.put(assigns, :action, Routes.list_path(@conn, :update, @list)) %>
 
-<span><%= link "Back", to: Routes.list_path(@conn, :index) %></span>
+<span><%= button "Back", to: Routes.list_path(@conn, :index), method: "get" %></span>
+<span><%= button "Add new receiver", to: Routes.address_path(@conn, :new), method: "get" %></span>

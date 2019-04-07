@@ -3,12 +3,13 @@ defmodule MailbaseWeb.ListController do
 
   alias Mailbase.Lists
   alias Mailbase.Lists.List
+  alias Mailbase.Receivers.Address
 
   plug MailbaseWeb.Plugs.CheckAuth when action in [:index, :new, :create, :update, :show, :edit, :logged_in]
 
   def index(conn, _params) do
-    lits = Lists.list_list(conn)
-    render(conn, "index.html", lits: lits)
+    list = Lists.list_list(conn)
+    render(conn, "index.html", list: list)
   end
 
   def new(conn, _params) do
@@ -61,5 +62,14 @@ defmodule MailbaseWeb.ListController do
     conn
     |> put_flash(:info, "List deleted successfully.")
     |> redirect(to: Routes.list_path(conn, :index))
+  end
+
+  def add_receiver(conn, %{"list_id" => id}) do
+    #list = Lists.get_list!(id)
+    IO.inspect id
+    list = Lists.get_list!(id)
+    IO.inspect list
+    conn
+    |> redirect(to: Routes.address_path(conn, :new, list_id: id))
   end
 end

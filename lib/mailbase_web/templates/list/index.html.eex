@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-<%= for list <- @lits do %>
+<%= for list <- @list do %>
     <tr>
       <td><%= list.name %></td>
 
@@ -20,6 +20,7 @@
       <td>
         <%= link "Pokaż szczegóły", to: Routes.list_path(@conn, :show, list) %> |
         <%= link "Edytuj", to: Routes.list_path(@conn, :edit, list) %> |
+        <%= link "Dodaj odbiorcę", to: Routes.list_path(@conn, :add_receiver, list_id: list.id) %> |
         <%= link "Usuń", to: Routes.list_path(@conn, :delete, list), method: :delete, data: [confirm: "Are you sure?"] %>
       </td>
     </tr>

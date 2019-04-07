@@ -5,9 +5,8 @@ defmodule Mailbase.Receivers.Address do
   schema "addresses" do
     field :email, :string
     field :name, :string
-    field :list_id, :integer
 
-    belongs_to :lists, Mailbase.Accounts.List
+    belongs_to :list, Mailbase.Accounts.List
     timestamps()
   end
 

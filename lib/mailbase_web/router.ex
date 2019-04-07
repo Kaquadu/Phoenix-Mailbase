@@ -18,9 +18,11 @@ defmodule MailbaseWeb.Router do
 
     get "/", PageController, :index
     get "/welcome", UserController, :logged_in
+    get "/add_rcv", ListController, :add_receiver
     resources "/user", UserController
     resources "/userdata", UserDataController
     resources "/list", ListController
+    resources "/receivers", AddressController
 
     get "/login", SessionController, :new
     post "/login", SessionController, :create
