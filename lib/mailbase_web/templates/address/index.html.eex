@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>List ID</th>
 
       <th></th>
     </tr>
@@ -14,6 +15,7 @@
     <tr>
       <td><%= address.name %></td>
       <td><%= address.email %></td>
+      <td><%= address.list_id %></td>
 
       <td>
         <%= link "Show", to: Routes.address_path(@conn, :show, address) %>

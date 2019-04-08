@@ -65,10 +65,6 @@ defmodule MailbaseWeb.ListController do
   end
 
   def add_receiver(conn, %{"list_id" => id}) do
-    #list = Lists.get_list!(id)
-    IO.inspect id
-    list = Lists.get_list!(id)
-    IO.inspect list
     conn
     |> redirect(to: Routes.address_path(conn, :new, list_id: id))
   end

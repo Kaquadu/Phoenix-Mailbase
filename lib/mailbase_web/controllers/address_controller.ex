@@ -3,6 +3,7 @@ defmodule MailbaseWeb.AddressController do
 
   alias Mailbase.Receivers
   alias Mailbase.Receivers.Address
+  alias Plug.Conn
 
   plug MailbaseWeb.Plugs.CheckAuth when action in [:index, :new, :create, :update, :show, :edit, :logged_in]
 
@@ -17,7 +18,6 @@ defmodule MailbaseWeb.AddressController do
   end
 
   def create(conn, %{"address" => address_params}) do
-    IO.inspect address_params
     case Receivers.create_address(address_params) do
       {:ok, address} ->
         conn
