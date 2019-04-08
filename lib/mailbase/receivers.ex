@@ -37,6 +37,12 @@ defmodule Mailbase.Receivers do
   """
   def get_address!(id), do: Repo.get!(Address, id)
 
+
+  def get_by_list_id!(id) do
+    Repo.all(from address in Address, where: address.list_id == ^id,
+                                  select: address)
+    |> IO.inspect
+  end
   @doc """
   Creates a address.
 

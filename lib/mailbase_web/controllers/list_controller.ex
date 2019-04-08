@@ -32,7 +32,8 @@ defmodule MailbaseWeb.ListController do
 
   def show(conn, %{"id" => id}) do
     list = Lists.get_list!(id)
-    render(conn, "show.html", list: list)
+    addresses = Address.get_by_list_id(id)
+    render(conn, "show.html", list: list, addresses: addresses)
   end
 
   def edit(conn, %{"id" => id}) do
