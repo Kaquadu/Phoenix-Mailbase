@@ -34,10 +34,10 @@ defmodule MailbaseWeb.AddressController do
     render(conn, "show.html", address: address)
   end
 
-  def edit(conn, %{"id" => id}) do
+  def edit(conn, %{"list_id" => list_id, "id" => id}) do
     address = Receivers.get_address!(id)
     changeset = Receivers.change_address(address)
-    render(conn, "edit.html", address: address, changeset: changeset)
+    render(conn, "edit.html", address: address, changeset: changeset, list_id: list_id)
   end
 
   def update(conn, %{"id" => id, "address" => address_params}) do
@@ -47,7 +47,7 @@ defmodule MailbaseWeb.AddressController do
       {:ok, address} ->
         conn
         |> put_flash(:info, "Address updated successfully.")
-        |> redirect(to: Routes.address_path(conn, :show, address))
+        |> redirect(to: Routes.address_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", address: address, changeset: changeset)

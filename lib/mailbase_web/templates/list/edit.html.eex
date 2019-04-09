@@ -1,6 +1,6 @@
 <h1>Edit List</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.list_path(@conn, :update, @list)) %>
+<%= render "form.html", Map.put(assigns, :action, Routes.list_path(@conn, :update)) %>
 
 <span><%= button "Back", to: Routes.list_path(@conn, :index), method: "get" %></span>
 <span><%= button "Add new receiver", to: Routes.address_path(@conn, :new), method: "get" %></span>

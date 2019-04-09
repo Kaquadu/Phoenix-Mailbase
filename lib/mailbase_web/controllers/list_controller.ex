@@ -3,6 +3,7 @@ defmodule MailbaseWeb.ListController do
 
   alias Mailbase.Lists
   alias Mailbase.Lists.List
+  alias Mailbase.Receivers
   alias Mailbase.Receivers.Address
 
   plug MailbaseWeb.Plugs.CheckAuth when action in [:index, :new, :create, :update, :show, :edit, :logged_in]
@@ -32,7 +33,7 @@ defmodule MailbaseWeb.ListController do
 
   def show(conn, %{"id" => id}) do
     list = Lists.get_list!(id)
-    addresses = Address.get_by_list_id(id)
+    addresses = Receivers.get_by_list_id!(id)
     render(conn, "show.html", list: list, addresses: addresses)
   end
 
