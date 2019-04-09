@@ -1,0 +1,28 @@
+<h1>Show Schedule</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @schedule.name %>
+  </li>
+
+  <li>
+    <strong>Schedule time:</strong>
+    <%= @schedule.schedule_time %>
+  </li>
+
+  <li>
+    <strong>Last mailing:</strong>
+    <%= @schedule.last_mailing %>
+  </li>
+
+  <li>
+    <strong>Matching list:</strong>
+    <%= @schedule.matching_list_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.schedule_path(@conn, :edit, @schedule) %></span>
+<span><%= link "Back", to: Routes.schedule_path(@conn, :index) %></span>

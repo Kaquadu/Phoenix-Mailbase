@@ -43,6 +43,12 @@ defmodule Mailbase.Lists do
   """
   def get_list!(id), do: Repo.get!(List, id)
 
+  def get_user_list_names(user_id) do
+    Repo.all(from list in List, where: list.user_id == ^user_id,
+                                  select: list.name)
+    |> IO.inspect
+  end
+
   @doc """
   Creates a list.
 

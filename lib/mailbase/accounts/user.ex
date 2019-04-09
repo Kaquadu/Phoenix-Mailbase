@@ -8,6 +8,7 @@ defmodule Mailbase.Accounts.User do
 
     has_one :user_data, Mailbase.AccountsData.UserData, on_delete: :delete_all
     has_many :lists, Mailbase.Lists.List, on_delete: :delete_all
+    has_many :schedules, Mailbase.Schedules.Schedule, on_delete: :delete_all
     timestamps()
   end
 

@@ -1,0 +1,32 @@
+<h1>Listing Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Schedule time</th>
+      <th>Last mailing</th>
+      <th>Matching list</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for schedule <- @schedules do %>
+    <tr>
+      <td><%= schedule.name %></td>
+      <td><%= schedule.schedule_time %></td>
+      <td><%= schedule.last_mailing %></td>
+      <td><%= schedule.matching_list_id %></td>
+
+      <td>
+        <%= link "Show", to: Routes.schedule_path(@conn, :show, schedule) %>
+        <%= link "Edit", to: Routes.schedule_path(@conn, :edit, schedule) %>
+        <%= link "Delete", to: Routes.schedule_path(@conn, :delete, schedule), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Schedule", to: Routes.schedule_path(@conn, :new) %></span>

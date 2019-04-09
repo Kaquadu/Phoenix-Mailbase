@@ -23,6 +23,7 @@ defmodule MailbaseWeb.Router do
     resources "/userdata", UserDataController, except: [:new, :create]
     resources "/list", ListController
     resources "/receivers", AddressController, except: [:show]
+    resources "/schedules", ScheduleController
 
     get "/login", SessionController, :new
     post "/login", SessionController, :create
