@@ -5,9 +5,15 @@
     </div>
   <% end %>
 
+  <%= @list_names %>
+
   <%= label f, :name %>
   <%= text_input f, :name %>
   <%= error_tag f, :name %>
+
+  <%= label f, :email_text %>
+  <%= text_input f, :email_text %>
+  <%= error_tag f, :email_text %>
 
   <%= label f, :schedule_frequency_in_days %>
   <%= number_input f, :schedule_time %>
@@ -15,8 +21,8 @@
 
   <%= hidden_input f, :last_mailing, value: DateTime.utc_now %>
 
-  <%= label f, :matching_list_id %>
-  <%= select f, :matching_list_id, value: @list_names %>
+  <%= label f, :matching_list %>
+  <%= select f, :matching_list, @list_names %>
 
   <div>
     <%= submit "Save" %>

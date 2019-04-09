@@ -20,14 +20,17 @@ defmodule MailbaseWeb.ScheduleController do
   end
 
   def create(conn, %{"schedule" => schedule_params}) do
+    schedule_params = Map.put(schedule_params ,"user_id", Kernel.inspect(conn.assigns.current_user.id))
     case Schedules.create_schedule(schedule_params) do
       {:ok, schedule} ->
         conn
         |> put_flash(:info, "Schedule created successfully.")
-        |> redirect(to: Routes.schedule_path(conn, :show, schedule))
+        |> redirect(to: Routes.schedule_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> put_flash(:error, "Schedule not created, changeset error.")
+        |> redirect(to: Routes.schedule_path(conn, :index))
     end
   end
 

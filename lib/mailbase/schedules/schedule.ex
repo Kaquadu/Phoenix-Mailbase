@@ -4,7 +4,8 @@ defmodule Mailbase.Schedules.Schedule do
 
   schema "schedules" do
     field :last_mailing, :utc_datetime
-    field :matching_list_id, :integer
+    field :matching_list, :string
+    field :email_text, :string
     field :name, :string
     field :schedule_time, :integer
 
@@ -15,8 +16,12 @@ defmodule Mailbase.Schedules.Schedule do
 
   @doc false
   def changeset(schedule, attrs) do
+    attrs |> IO.inspect
     schedule
-    |> cast(attrs, [:name, :schedule_time, :last_mailing, :matching_list_id, :user_id])
-    |> validate_required([:name, :schedule_time, :last_mailing, :matching_list_id, :user_id])
+    |> IO.inspect
+    |> cast(attrs, [:name, :schedule_time, :last_mailing, :matching_list, :email_text, :user_id])
+    |> IO.inspect
+    |> validate_required([:name, :schedule_time, :last_mailing, :matching_list, :email_text, :user_id])
+    |> IO.inspect
   end
 end

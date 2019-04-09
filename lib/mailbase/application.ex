@@ -11,9 +11,10 @@ defmodule Mailbase.Application do
       # Start the Ecto repository
       Mailbase.Repo,
       # Start the endpoint when the application starts
-      MailbaseWeb.Endpoint
+      MailbaseWeb.Endpoint,
       # Starts a worker by calling: Mailbase.Worker.start_link(arg)
       # {Mailbase.Worker, arg},
+      Mailbase.ScheduleCrawler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

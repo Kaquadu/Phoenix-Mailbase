@@ -17,7 +17,7 @@
       <td><%= schedule.name %></td>
       <td><%= schedule.schedule_time %></td>
       <td><%= schedule.last_mailing %></td>
-      <td><%= schedule.matching_list_id %></td>
+      <td><%= schedule.matching_list %></td>
 
       <td>
         <%= link "Show", to: Routes.schedule_path(@conn, :show, schedule) %>
