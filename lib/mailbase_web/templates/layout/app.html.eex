@@ -9,14 +9,21 @@
   </head>
   <body>
     <header>
-      <section class="container">
-        <nav role="navigation">
+      <section class="container" style="display: flex; align-items: center; justify-content: center;">
+        <nav role="navigation" style="display: flex; align-items: center; justify-content: center; margin-top: 1rem">
           <ul>
             <%= if MailbaseWeb.Helpers.Auth.signed_in?(@conn) do %>
-              <%= link "Wylogowanie", to: Routes.session_path(@conn, :delete), method: :delete %>
+              <div style="display: flex; justify-content: flex-start; flex-direction: column;">
+                <%= button "Wylogowanie", to: Routes.session_path(@conn, :delete), method: "delete" %>
+                <div class="user-info">
+                  <span style="display: inline">Zalogowano jako:</span>
+                  <span style="display: inline"><%= @conn.assigns.current_user.login_mail %></span>
+              </div>
             <% else %>
-              <%= link "Logowanie", to: Routes.session_path(@conn, :new) %>
-              <%= link "Rejestracja", to: Routes.user_path(@conn, :new) %>
+            <div style="display: flex; justify-content: flex-start; flex-direction: column;">
+              <%= button "Logowanie", to: Routes.session_path(@conn, :new), method: "get" %>
+              <%= button "Rejestracja", to: Routes.user_path(@conn, :new), method: "get" %>
+            </div>
             <% end %>
           </ul>
         </nav>
