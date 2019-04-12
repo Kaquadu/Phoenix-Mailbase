@@ -18,11 +18,16 @@
   </li>
 
   <li>
+    <strong>Next Mailing:</strong>
+    <%= @schedule.next_mailing %>
+  </li>
+
+  <li>
     <strong>Matching list:</strong>
-    <%= @schedule.matching_list_id %>
+    <%= @schedule.matching_list %>
   </li>
 
 </ul>
 
-<span><%= link "Edit", to: Routes.schedule_path(@conn, :edit, @schedule) %></span>
+<span><%= link "Edit", to: Routes.schedule_path(@conn, :edit, @schedule) %></span> |
 <span><%= link "Back", to: Routes.schedule_path(@conn, :index) %></span>

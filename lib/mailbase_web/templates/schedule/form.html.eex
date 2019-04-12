@@ -20,11 +20,12 @@
   <%= error_tag f, :schedule_time %>
 
   <%= hidden_input f, :last_mailing, value: DateTime.utc_now %>
+  <%= hidden_input f, :next_mailing, value: DateTime.utc_now %>
 
   <%= label f, :matching_list %>
   <%= select f, :matching_list, @list_names %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Zapisz" %>
   </div>
 <% end %>

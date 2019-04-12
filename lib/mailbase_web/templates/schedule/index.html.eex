@@ -3,10 +3,11 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Schedule time</th>
-      <th>Last mailing</th>
-      <th>Matching list</th>
+      <th>Nazwa</th>
+      <th>Częstotliwość Schedule</th>
+      <th>Ostatni mailing</th>
+      <th>Następny mailing</th>
+      <th>Nazwa listy</th>
 
       <th></th>
     </tr>
@@ -17,16 +18,17 @@
       <td><%= schedule.name %></td>
       <td><%= schedule.schedule_time %></td>
       <td><%= schedule.last_mailing %></td>
+      <td><%= schedule.next_mailing %></td>
       <td><%= schedule.matching_list %></td>
 
       <td>
-        <%= link "Show", to: Routes.schedule_path(@conn, :show, schedule) %>
-        <%= link "Edit", to: Routes.schedule_path(@conn, :edit, schedule) %>
-        <%= link "Delete", to: Routes.schedule_path(@conn, :delete, schedule), method: :delete, data: [confirm: "Are you sure?"] %>
+        <%= link "Pokaż", to: Routes.schedule_path(@conn, :show, schedule) %>
+        <%= link "Edytuj", to: Routes.schedule_path(@conn, :edit, schedule) %>
+        <%= link "Usuń", to: Routes.schedule_path(@conn, :delete, schedule), method: :delete, data: [confirm: "Are you sure?"] %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Schedule", to: Routes.schedule_path(@conn, :new) %></span>
+<span><%= button "Nowy Schedule", to: Routes.schedule_path(@conn, :new), method: "get", class: "btna" %></span>

@@ -14,6 +14,6 @@
   <%= error_tag f, :desc %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Zapisz" %>
   </div>
 <% end %>

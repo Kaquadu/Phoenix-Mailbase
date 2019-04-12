@@ -21,6 +21,11 @@ defmodule Mailbase.Schedules do
     Repo.all(Schedule)
   end
 
+  def get_ready_schedules do
+    now = DateTime.utc_now
+    Repo.all(from schedule in Schedule,
+            where: schedule.next_mailing < ^now)
+  end
   @doc """
   Gets a single schedule.
 

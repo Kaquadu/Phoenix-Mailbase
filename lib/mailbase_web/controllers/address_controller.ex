@@ -22,7 +22,7 @@ defmodule MailbaseWeb.AddressController do
       {:ok, address} ->
         conn
         |> put_flash(:info, "Address created successfully.")
-        |> redirect(to: Routes.address_path(conn, :show, address))
+        |> redirect(to: Routes.list_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

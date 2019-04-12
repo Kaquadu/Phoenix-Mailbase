@@ -29,7 +29,9 @@
   <%= password_input f, :hosting_password %>
   <%= error_tag f, :hosting_password %>
 
-  <div>
-    <%= submit "Save" %>
-  </div>
+  <div style = "display: flex; align-items: center; justify-content: center">
+    <div>
+      <%= submit "Save" %>
+    </div>
+</div>
 <% end %>

@@ -15,6 +15,6 @@
 
   <%= hidden_input f, :list_id, value: @list_id %>
   <div>
-    <%= submit "Save" %>
+    <%= submit "Zapisz" %>
   </div>
 <% end %>

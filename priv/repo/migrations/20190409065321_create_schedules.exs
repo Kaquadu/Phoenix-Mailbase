@@ -6,6 +6,7 @@ defmodule Mailbase.Repo.Migrations.CreateSchedules do
       add :name, :string
       add :schedule_time, :integer
       add :last_mailing, :utc_datetime
+      add :next_mailing, :utc_datetime
       add :matching_list, :string
       add :email_text, :text
       add :user_id, references(:users)
@@ -13,5 +14,6 @@ defmodule Mailbase.Repo.Migrations.CreateSchedules do
       timestamps()
     end
 
+    create unique_index(:schedules, [:name])
   end
 end

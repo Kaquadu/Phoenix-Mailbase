@@ -14,7 +14,7 @@ defmodule Mailbase.Application do
       MailbaseWeb.Endpoint,
       # Starts a worker by calling: Mailbase.Worker.start_link(arg)
       # {Mailbase.Worker, arg},
-      Mailbase.ScheduleCrawler
+      {Mailbase.ScheduleCrawler, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

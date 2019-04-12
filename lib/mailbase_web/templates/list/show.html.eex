@@ -1,14 +1,14 @@
-<h1>Show List</h1>
+<h1>Pokaż parametry listy</h1>
 
 <ul>
 
   <li>
-    <strong>Name:</strong>
+    <strong>Nazwa:</strong>
     <%= @list.name %>
   </li>
 
   <li>
-    <strong>Description:</strong>
+    <strong>Desc</strong>
     <%= @list.desc %>
   </li>
 
@@ -29,12 +29,12 @@
         <td><%= address.email %></td>
 
         <td>
-          <%= link "Edit", to: Routes.address_path(@conn, :edit, address, list_id: @list.id) %>
-          <%= link "Delete", to: Routes.address_path(@conn, :delete, address), method: :delete, data: [confirm: "Are you sure?"] %>
+          <%= link "Edytuj", to: Routes.address_path(@conn, :edit, address, list_id: @list.id) %>
+          <%= link "Usuń", to: Routes.address_path(@conn, :delete, address), method: :delete, data: [confirm: "Are you sure?"] %>
         </td>
       </tr>
   <% end %>
 
-<span><%= link "Back", to: Routes.list_path(@conn, :index) %></span> |
-<span><%= link "Edit", to: Routes.list_path(@conn, :edit, @list) %></span> |
+<span><%= link "Wróć", to: Routes.list_path(@conn, :index) %></span> |
+<span><%= link "Edytuj", to: Routes.list_path(@conn, :edit, @list) %></span> |
 <span><%= link "Dodaj odbiorcę", to: Routes.list_path(@conn, :add_receiver, list_id: @list.id) %></span>

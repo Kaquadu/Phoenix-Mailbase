@@ -3,7 +3,7 @@
 <ul>
 
   <li>
-    <strong>Name:</strong>
+    <strong>Nazwa:</strong>
     <%= @address.name %>
   </li>
 
@@ -14,5 +14,5 @@
 
 </ul>
 
-<span><%= link "Edit", to: Routes.address_path(@conn, :edit, @address) %></span>
-<span><%= link "Back", to: Routes.address_path(@conn, :index) %></span>
+<span><%= link "Edytuj", to: Routes.address_path(@conn, :edit, @address) %></span> |
+<span><%= link "Wróć", to: Routes.address_path(@conn, :index) %></span>
