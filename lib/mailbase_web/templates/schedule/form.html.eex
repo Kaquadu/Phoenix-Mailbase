@@ -12,7 +12,7 @@
   <%= error_tag f, :name %>
 
   <%= label f, :email_text %>
-  <%= text_input f, :email_text %>
+  <%= textarea f, :email_text %>
   <%= error_tag f, :email_text %>
 
   <%= label f, :schedule_frequency_in_days %>

@@ -43,6 +43,8 @@ defmodule Mailbase.Lists do
   """
   def get_list!(id), do: Repo.get!(List, id)
 
+  def get_by_name(nm), do: Repo.get_by(List, name: nm)
+
   def get_user_list_names(user_id) do
     Repo.all(from list in List, where: list.user_id == ^user_id,
                                   select: list.name)

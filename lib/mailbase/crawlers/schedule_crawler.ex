@@ -4,6 +4,10 @@ defmodule Mailbase.ScheduleCrawler do
   alias Mailbase.Schedules
   alias Mailbase.Repo
   alias Mailbase.Schedules.Schedule
+  alias Mailbase.AccountsData
+  alias Mailbase.Lists
+  alias Mailbase.Sender
+  alias Mailbase.Receivers
 
   def start_link(_) do
     GenServer.start_link(__MODULE__, [])
@@ -11,7 +15,7 @@ defmodule Mailbase.ScheduleCrawler do
 
   def init(state) do
     # Schedule work to be performed on start
-    schedule_crawl
+    schedule_crawl()
     schedule_work(1)
 
     {:ok, state}
@@ -27,12 +31,12 @@ defmodule Mailbase.ScheduleCrawler do
 
     case message do
       :crawl ->
-        ready_schedules = Schedules.get_ready_schedules
+        ready_schedules = Schedules.get_ready_schedules()
         if (ready_schedules != []) do
           change_next_mailing_time(ready_schedules)
           GenServer.cast(self(), {:add, ready_schedules})
         end
-        schedule_crawl
+        schedule_crawl()
         {:noreply, state}
       :work ->
         if (state == []) do
@@ -40,9 +44,15 @@ defmodule Mailbase.ScheduleCrawler do
           {:noreply, state}
         else
           [head | tail] =  state |> IO.inspect
-
-          # PROCESS HEAD
           IO.puts "- processing head -"
+          # PROCESS HEAD - send an email
+          user_data = AccountsData.get_user_data!(head.user_id)
+          matching_list = Lists.get_by_name(head.matching_list)
+          receivers = Receivers.get_by_list_id!(matching_list.id)
+          Sender.send_email(receivers, head, user_data)
+
+          Receivers.list_addresses()
+          |> IO.inspect
 
           schedule_work(1)
           {:noreply, tail}
