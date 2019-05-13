@@ -32,7 +32,7 @@ defmodule Mailbase.Sender do
     new_email(
       to: receiver.email,
       from: user_data.hosting_mail,
-      subject: "Schedule test",
+      subject: schedule.email_title,
       html_body: schedule.email_text,
       text_body: schedule.email_text
     )

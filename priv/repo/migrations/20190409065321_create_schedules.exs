@@ -8,6 +8,7 @@ defmodule Mailbase.Repo.Migrations.CreateSchedules do
       add :last_mailing, :utc_datetime
       add :next_mailing, :utc_datetime
       add :matching_list, :string
+      add :email_title, :text
       add :email_text, :text
       add :user_id, references(:users)
 

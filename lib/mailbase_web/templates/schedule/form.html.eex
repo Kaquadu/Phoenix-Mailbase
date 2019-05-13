@@ -11,6 +11,10 @@
   <%= text_input f, :name %>
   <%= error_tag f, :name %>
 
+  <%= label f, :email_title %>
+  <%= text_input f, :email_title %>
+  <%= error_tag f, :email_title %>
+
   <%= label f, :email_text %>
   <%= textarea f, :email_text %>
   <%= error_tag f, :email_text %>

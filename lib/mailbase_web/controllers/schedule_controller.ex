@@ -42,7 +42,8 @@ defmodule MailbaseWeb.ScheduleController do
   def edit(conn, %{"id" => id}) do
     schedule = Schedules.get_schedule!(id)
     changeset = Schedules.change_schedule(schedule)
-    render(conn, "edit.html", schedule: schedule, changeset: changeset)
+    list_names = Lists.get_user_list_names(conn.assigns.current_user.id)
+    render(conn, "edit.html", schedule: schedule, changeset: changeset, list_names: list_names)
   end
 
   def update(conn, %{"id" => id, "schedule" => schedule_params}) do

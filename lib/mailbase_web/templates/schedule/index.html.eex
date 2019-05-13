@@ -31,4 +31,4 @@
   </tbody>
 </table>
 
-<span><%= button "Nowy Schedule", to: Routes.schedule_path(@conn, :new), method: "get", class: "btna" %></span>
+<span><%= link "Nowy Schedule", to: Routes.schedule_path(@conn, :new), method: "get" %></span>
