@@ -1,13 +1,18 @@
-<div style="display: flex; flex-direction: column; align-items: flex-start justify-content: center;">
+<h1 style="display: flex; align-items: flex-start; justify-content: space-evenly;"> Witaj w bazie mailingowej</h1>
+<div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-evenly;">
 
-<h1 style="display: flex; align-items: flex-start; justify-content: center;"> Witaj w bazie mailingowej</h1>
-
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <span><%= button "Edytuj dane logowania", to: Routes.user_path(@conn, :edit, @user), method: "get", class: "btna" %></span>
-    <span><%= button "Edytuj dane kontaktowe", to: Routes.user_data_path(@conn, :edit, @user), method: "get", class: "btna" %></span>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; order: 1;">
+    <span><%= button "Edytuj dane logowania", to: Routes.user_path(@conn, :edit, @c_user), method: "get", class: "btna" %></span>
+    <span><%= button "Edytuj dane kontaktowe", to: Routes.user_data_path(@conn, :edit, @c_user), method: "get", class: "btna" %></span>
     <span><%= button "Przeglądaj listy", to: Routes.list_path(@conn, :index), method: "get", class: "btna" %></span>
     <span><%= button "Dodaj listę", to: Routes.list_path(@conn, :new), method: "get", class: "btna" %></span>
     <span><%= button "Przeglądaj schedules", to: Routes.schedule_path(@conn, :index), method: "get", class: "btna" %></span>
     <span><%= button "Dodaj schedule", to: Routes.schedule_path(@conn, :new), method: "get", class: "btna" %></span>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; order: 2;">
+  <span><%= button "Wyślij maila", to: Routes.user_path(@conn, :new_single_email), method: "get", class: "btnb"%></span>
+  <span><%= button "Xoxo", to: Routes.user_path(@conn, :logged_in), method: "get", class: "btnb"%></span>
+  <span><%= button "Xoxo2", to: Routes.user_path(@conn, :logged_in), method: "get", class: "btnb"%></span>
 </div>
 </div>

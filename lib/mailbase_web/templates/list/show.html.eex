@@ -8,7 +8,7 @@
   </li>
 
   <li>
-    <strong>Desc</strong>
+    <strong>Opis:</strong>
     <%= @list.desc %>
   </li>
 
@@ -16,7 +16,7 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Nazwa odbiorcy</th>
         <th>Email</th>
 
         <th></th>

@@ -44,7 +44,7 @@ defmodule Mailbase.ScheduleCrawler do
           {:noreply, state}
         else
           [head | tail] =  state |> IO.inspect
-          IO.puts "- processing head -"
+          # IO.puts "- processing head -"
           # PROCESS HEAD - send an email
           user_data = AccountsData.get_user_data!(head.user_id)
           matching_list = Lists.get_by_name(head.matching_list)

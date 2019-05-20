@@ -1,0 +1,22 @@
+<h1> Nowy email </h1>
+
+<% form_for %{}, Routes.user_path(@conn, :process_single_email), fn f -> %>
+
+  <%= label f, :matching_list %>
+  <%= select f, :matching_list, ["aa", "bb"] %><!--, @list_names %>-->
+
+  <%= label f, :email_title %>
+  <%= text_input f, :email_title %>
+  <%= error_tag f, :email_title %>
+
+  <%= label f, :email_text %>
+  <%= textarea f, :email_text %>
+  <%= error_tag f, :email_text %>
+
+  <div>
+    <%= submit "Wyślij" %>
+  </div>
+
+<% end %>
+
+<span><%= link "Wróć", to: Routes.user_path(@conn, :logged_in) %></span>

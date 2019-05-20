@@ -1,6 +1,7 @@
 defmodule MailbaseWeb.UserController do
   use MailbaseWeb, :controller
 
+  alias Mailbase.Lists
   alias Mailbase.Accounts
   alias Mailbase.Accounts.User
   alias Mailbase.AccountsData
@@ -79,9 +80,9 @@ plug MailbaseWeb.Plugs.CheckAuth when action in [:index, :show, :edit, :logged_i
   end
 
   def logged_in(conn, _params) do
-    assigns = Map.get(conn, :assigns)
-    user = assigns.current_user
-    render(conn, "logged_in.html", user: user)
+    IO.inspect conn
+    c_user = conn.assigns.current_user
+    render(conn, "logged_in.html", c_user: c_user)
   end
 
 
@@ -94,6 +95,16 @@ plug MailbaseWeb.Plugs.CheckAuth when action in [:index, :show, :edit, :logged_i
                                     "server_name" => nil,
                                     "user" => user,
                                     "user_id" => user.id})
+  end
+
+  def new_single_email(conn, _params) do
+
+    #list_names = Lists.get_user_list_names(1)
+    render(conn, "new_email.html")#, list_names: list_names)
+  end
+
+  def process_singe_email(conn, params) do
+    IO.inspect params
   end
 
 end

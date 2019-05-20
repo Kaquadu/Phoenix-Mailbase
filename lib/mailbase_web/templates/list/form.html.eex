@@ -5,11 +5,11 @@
     </div>
   <% end %>
 
-  <%= label f, :name %>
+  <%= label f, :Nazwa %>
   <%= text_input f, :name %>
   <%= error_tag f, :name %>
 
-  <%= label f, :description %>
+  <%= label f, :Opis %>
   <%= text_input f, :desc %>
   <%= error_tag f, :desc %>
 

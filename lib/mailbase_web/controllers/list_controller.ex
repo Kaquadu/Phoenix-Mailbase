@@ -19,7 +19,7 @@ defmodule MailbaseWeb.ListController do
   end
 
   def create(conn, %{"list" => list_params}) do
-    IO.inspect list_params = Map.put(list_params, "user_id", conn.assigns.current_user.id)
+    list_params = Map.put(list_params, "user_id", conn.assigns.current_user.id)
     case Lists.create_list(list_params) do
       {:ok, list} ->
         conn

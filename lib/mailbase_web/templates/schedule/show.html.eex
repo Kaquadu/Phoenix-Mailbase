@@ -3,27 +3,37 @@
 <ul>
 
   <li>
-    <strong>Name:</strong>
+    <strong>Nazwa:</strong>
     <%= @schedule.name %>
   </li>
 
   <li>
-    <strong>Schedule time:</strong>
+    <strong>Temat:</strong>
+    <%= @schedule.email_title %>
+  </li>
+
+  <li>
+    <strong>Wiadomość:</strong>
+    <%= @schedule.email_text %>
+  </li>
+
+  <li>
+    <strong>Częstotliwość:</strong>
     <%= @schedule.schedule_time %>
   </li>
 
   <li>
-    <strong>Last mailing:</strong>
+    <strong>Ostatni Mailing:</strong>
     <%= @schedule.last_mailing %>
   </li>
 
   <li>
-    <strong>Next Mailing:</strong>
+    <strong>Następny Mailing:</strong>
     <%= @schedule.next_mailing %>
   </li>
 
   <li>
-    <strong>Matching list:</strong>
+    <strong>Lista odbiorców:</strong>
     <%= @schedule.matching_list %>
   </li>
 
